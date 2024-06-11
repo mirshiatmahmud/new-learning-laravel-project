@@ -7,6 +7,12 @@
 </head>
 <body>
     <h1>This is Home page</h1>
-    <h1>My name is <?php echo $name ?></h1>
+    <h1>My name is {{$name}}</h1>
+    <h1>My age is {{$age}}</h1>
+    <?php
+        foreach([$subject,$marks] as [$x,$y,$z]){
+            echo $x.$y.$z;
+        }
+    ?>
 </body>
 </html>
