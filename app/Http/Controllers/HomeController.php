@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 class HomeController extends Controller
 {
     public function index(){
-        return 'hellow HomoController';
+        $this->data['name'] = 'mir shifat';
+
+        return view('home.index',$this->data);
     }
 }
