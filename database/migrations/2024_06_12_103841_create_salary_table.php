@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DropViewsFromUsersTable extends Migration
+class CreateSalaryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class DropViewsFromUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('views');
+        Schema::create('salary', function (Blueprint $table) {
+            $table->id();
+            $table->integer('customer id');
+            $table->integer('salary');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class DropViewsFromUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('salary');
     }
 }
