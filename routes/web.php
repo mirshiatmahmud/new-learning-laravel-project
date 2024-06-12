@@ -5,6 +5,8 @@ use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Models\Post;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,7 +44,16 @@ Route::get('/', function () {
 Route::get('customer-info',[CustomerController::class,'customer']);
 
 
+Route::get('create',function(){
+    $data = [
+        'title' => 'mango',
+        'user_id' => 4,
+        'description' => 'i am description',
+        'status' => true
+    ];
 
+    Post::create($data);
+});
 
 
 
